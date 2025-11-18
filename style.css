@@ -1,0 +1,666 @@
+/* ======================================== */
+/* ==     VARIABEL GAYA GLOBAL           == */
+/* ======================================== */
+:root {
+    /* [UPDATE] Palet Warna General & Profesional */
+    --bg-white: #ffffff;
+    --bg-light-gray: #f9f9f9; 
+    --text-dark: #1a1a1a;
+    --text-light: #555555;
+    --primary-blue: #003366;  /* Biru Korporat Utama */
+    --accent-blue: #0056b3;   /* [UPDATE] Biru aksen baru (menggantikan ungu) */
+    --border-gray: #eaeaea;   
+}
+
+/* --- Reset Dasar & Pengaturan Font --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sentuhan CSS: Membuat scroll mulus & memberi padding untuk navbar */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* [BARU] Jarak untuk fixed navbar (sesuaikan tinggi navbar) */
+}
+
+body {
+    font-family: 'Lato', sans-serif; 
+    font-size: 1.1rem; 
+    line-height: 1.7;  
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    padding-top: 70px; /* [BARU] Memberi ruang di atas untuk fixed navbar */
+}
+
+.container {
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* --- Hirarki Judul (Penting untuk HR Scan) --- */
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+section {
+    padding: 70px 0; 
+}
+
+/* --- Tombol Aksi (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-blue); /* [UPDATE] Warna aksen baru */
+    color: var(--bg-white);
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #004494; /* [UPDATE] Warna hover baru */
+    transform: translateY(-3px); 
+}
+
+/* ======================================== */
+/* ==     [BARU] BAGIAN NAVBAR           == */
+/* ======================================== */
+.navbar {
+    position: fixed; /* Tetap di atas saat di-scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-gray);
+    z-index: 1000; /* Memastikan navbar selalu di paling atas */
+    height: 70px; /* Tinggi navbar */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between; /* Logo di kiri, link di kanan */
+    align-items: center;
+    height: 100%;
+}
+
+.nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue); /* [UPDATE] Warna aksen baru */
+}
+
+/* Tombol CTA khusus di Navbar */
+.nav-links .nav-cta {
+    background-color: var(--accent-blue); /* [UPDATE] Warna aksen baru */
+    color: var(--bg-white);
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links .nav-cta:hover {
+    background-color: #004494; /* [UPDATE] Warna hover baru */
+    color: var(--bg-white);
+}
+
+/* ======================================== */
+/* ==     BAGIAN HERO (PROFIL UTAMA)     == */
+/* ======================================== */
+header.hero {
+    background-color: var(--primary-blue);
+    min-height: 90vh; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border-gray);
+}
+/* Inversi warna teks untuk Hero Background Biru Tua */
+header.hero h1,
+header.hero .summary {
+    color: var(--bg-white);
+}
+
+header.hero .job-title {
+    color: #a7c7e7; /* Biru muda agar tetap kontras */
+}
+
+header.hero .hero-img {
+    border-color: var(--bg-white); /* Ubah border foto jadi putih */
+}
+.hero-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.hero .job-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+}
+
+.hero .summary {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+/* ======================================== */
+/* == [BARU] Skill Summary "Card" Grid   == */
+/* ======================================== */
+
+/* 1. Ini adalah Grid 3-kolom nya */
+.skill-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px; 
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-gray); 
+}
+
+/* 2. Ini adalah CSS Card Anda */
+.skill-category {
+    background-color: var(--bg-white); 
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--accent-blue); 
+}
+
+.skill-category h4 {
+    font-size: 1.3rem;
+    color: var(--primary-blue);
+    margin-bottom: 1.5rem; 
+}
+
+/* 3. [INI YANG HILANG] Menghilangkan titik hitam */
+.skill-category ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* 4. [INI YANG HILANG] Mengatur posisi list */
+.skill-category ul li {
+    font-size: 1.05rem; 
+    margin-bottom: 10px; 
+    position: relative;
+    padding-left: 25px; /* Memberi ruang untuk ceklis */
+    color: var(--text-dark);
+}
+
+/* 5. Ini menambahkan ceklis (✓) */
+.skill-category ul li::before {
+    content: '✓'; /* Simbol ceklis Unicode */
+    font-weight: 900;
+    color: var(--accent-blue); 
+    position: absolute;
+    left: 0;
+    top: 2px; 
+    font-size: 1.1rem;
+}
+
+/* ======================================== */
+/* ==     [PERBARUAN] BAGIAN KEAHLIAN    == */
+/* ======================================== */
+#skills {
+    background-color: var(--bg-light-gray); 
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.skill-card h3 {
+    border-bottom: 3px solid var(--accent-blue); /* [UPDATE] Warna aksen baru */
+    padding-bottom: 10px;
+}
+
+.skill-item-wrapper {
+    margin-top: 20px;
+}
+
+.skill-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-gray);
+}
+.skill-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.skill-item h4 {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.skill-item p {
+    font-size: 1rem; 
+    margin-bottom: 15px;
+}
+
+img.proof-image {
+    width: 100%;
+    max-height: 350px; 
+    object-fit: contain; 
+    background-color: #f0f0f0;
+    border: 1px solid var(--border-gray);
+    border-radius: 5px;
+}
+
+/* ======================================== */
+/* ==     BAGIAN PROYEK (STUDI KASUS)    == */
+/* ======================================== */
+#projects {
+    background-color: var(--bg-white);
+}
+
+.project-card {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    display: flex; 
+    flex-wrap: wrap; 
+    overflow: hidden;
+}
+
+.project-content {
+    flex: 2; 
+    min-width: 300px;
+    padding: 35px;
+}
+.visual-column-container {
+    flex: 1; 
+    background-color: var(--bg-light-gray); 
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+.project-content h3 {
+    margin-bottom: 5px;
+}
+
+.project-role {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.project-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-content li {
+    position: relative;
+    padding-left: 25px; 
+    margin-bottom: 10px;
+}
+
+.project-content li::before {
+    content: '>'; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-blue); /* [UPDATE] Warna aksen baru */
+    font-weight: bold;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.project-tags {
+    margin-top: 20px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #eef;
+    color: var(--primary-blue);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+.project-links {
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.detail-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--accent-blue); /* [UPDATE] Warna aksen baru */
+    color: var(--bg-white);
+    text-decoration: none; 
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s;
+}
+
+.detail-link:hover {
+    background-color: #004494; /* [UPDATE] Warna hover baru */
+}
+
+/* Styling untuk Link di dalam Teks Paragraf */
+.text-link {
+    color: var(--primary-blue); /* Warna biru korporat Anda */
+    font-weight: 700;           /* Dibuat tebal agar menonjol */
+    text-decoration: underline;   /* Garis bawah tipis */
+    text-decoration-color: var(--accent-blue);
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--accent-blue); /* Berubah warna saat di-hover */
+}
+/* ======================================== */
+/* ==     BAGIAN PENGALAMAN (KEGIATAN)   == */
+/* ======================================== */
+#experience {
+    background-color: var(--bg-light-gray);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.experience-card {
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+}
+
+.experience-card h4 {
+    margin-bottom: 2px;
+}
+
+.experience-role {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.experience-card ul {
+    list-style-type: none; /* Menghilangkan bullet point standar */
+    padding-left: 0;
+}
+
+.experience-card li {
+    position: relative;
+    padding-left: 25px; /* Memberi ruang untuk simbol '>' */
+    margin-bottom: 10px;
+    color: var(--text-light); /* Menyamakan warna teks paragraf */
+}
+
+.experience-card li::before {
+    content: '>'; /* Simbol '>' */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-blue); /* Warna aksen biru */
+    font-weight: bold;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+}
+.experience-card {
+    position: relative; 
+    background: var(--bg-white);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid var(--border-gray);
+}
+
+.experience-logo {
+    position: absolute; 
+    top: 20px;
+    right: 20px;
+    width: 50px; 
+    height: auto;
+    object-fit: contain;
+    opacity: 0.8; 
+}
+
+/* ======================================== */
+/* ==     BAGIAN PENDIDIKAN            == */
+/* ======================================== */
+.education-grid,
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+#education {
+background-color: var(--bg-light-gray); 
+padding-bottom: 50px;
+}
+
+.education-text {
+    text-align: left; 
+}
+
+.education-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.education-context {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-style: italic;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-gray);
+}
+
+/* ======================================== */
+/* ==     BAGIAN FOOTER (KONTAK)         == */
+/* ======================================== */
+footer {
+    background-color: var(--primary-blue);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 70px 20px;
+}
+
+footer h2 {
+    color: var(--bg-white);
+}
+
+footer p {
+    color: #eee;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.footer-links {
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: var(--bg-white);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a7c7e7; /* [UPDATE] Warna hover baru (biru muda) */
+}
+
+.footer-availability {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 30px;
+    border-top: 1px solid #336699; 
+    padding-top: 20px;
+    display: inline-block;
+}
+
+/* ======================================== */
+/* ==     RESPONSIVE (MOBILE FRIENDLY)   == */
+/* ======================================== */
+
+/* [BARU] CSS untuk Navbar versi Mobile */
+@media (max-width: 850px) {
+    .nav-links {
+        display: none; /* Sembunyikan link di mobile (perlu JS untuk menu hamburger) */
+        /* Untuk saat ini, kita sembunyikan saja agar tidak rusak */
+    }
+
+    .nav-logo {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .job-title {
+        font-size: 1.2rem;
+    }
+    
+    .hero .summary {
+        font-size: 1rem;
+    }
+
+    /* Semua grid di-stack jadi 1 kolom di HP */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* [UPDATE] Mengatur project card di mobile */
+    .project-card {
+        flex-direction: column; /* Stack konten di atas visual */
+    }
+    
+    /* [BARU] Menukar urutan di mobile agar visual tetap di atas */
+    .project-card:nth-child(2) .visual-column-container {
+        order: 1;
+    }
+    .project-card:nth-child(2) .project-content {
+        order: 2;
+    }
+    
+    .project-card:nth-child(3) .visual-column-container {
+        order: 1;
+    }
+    .project-card:nth-child(3) .project-content {
+        order: 2;
+    }
+}
